@@ -1,0 +1,40 @@
+{
+  "name": "fullstack-testing-demo",
+  "version": "1.0.0",
+  "main": "./server/app.js",
+  "author": "Adrian Kontny <adrian.kontny@outlook.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "./scripts/start.sh",
+    "dev": "concurrently --kill-others \"yarn build --watch\" \"yarn start\"",
+    "test": "electron-mocha -r @babel/register --no-timeout --color --renderer ./test/todosSpec.js",
+    "test-debug": "yarn test --interactive",
+    "build": "webpack"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
+    "@babel/register": "^7.10.5",
+    "babel-loader": "^8.1.0",
+    "browser-monkey": "^2.11.0",
+    "electron": "^8",
+    "electron-mocha": "^8",
+    "mocha": "^8.1.0",
+    "node-dev": "^5.1.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-manifest-plugin": "^2.2.0"
+  },
+  "dependencies": {
+    "chokidar": "^3.4.1",
+    "concurrently": "^5.2.0",
+    "express": "^4.17.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "sqlite3": "^5.0.0",
+    "ws": "^7.3.1"
+  }
+}
