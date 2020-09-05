@@ -6,9 +6,10 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "./scripts/start.sh",
-    "dev": "concurrently --kill-others \"yarn build --watch\" \"yarn start\"",
-    "test": "electron-mocha -r @babel/register --no-timeout --color --renderer ./test/todosSpec.js",
+    "start": "node ./server/app.js",
+    "local": "node-dev --no-notify --respawn --inspect -- ./server/app.js",
+    "dev": "concurrently --kill-others \"yarn build --watch\" \"yarn local\"",
+    "test": "electron-mocha -r @babel/register --no-timeout --color --renderer ./test/**Spec.js",
     "test-debug": "yarn test --interactive",
     "build": "webpack"
   },
@@ -19,10 +20,12 @@
     "@babel/register": "^7.10.5",
     "babel-loader": "^8.1.0",
     "browser-monkey": "^2.11.0",
+    "chromedriver": "^85.0.0",
     "electron": "^8",
     "electron-mocha": "^8",
     "mocha": "^8.1.0",
     "node-dev": "^5.1.0",
+    "selenium-webdriver": "^4.0.0-alpha.7",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-manifest-plugin": "^2.2.0"
